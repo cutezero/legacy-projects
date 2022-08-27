@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<endpoints xmlns='http://java.sun.com/xml/ns/jax-rpc/ri/runtime' version='1.0'>
+  <endpoint
+    name='OlaCabs'
+    interface='com.ola.services.Ola_PortType'
+    implementation='com.ola.services.Ola_PortTypeImpl'
+    tie='com.ola.services.Ola_PortType_Tie'
+    model='/WEB-INF/model-rpc-enc.xml.gz'
+    wsdl='/WEB-INF/ola.wsdl'
+    service='{http://ola.com/cabs/services}ola'
+    port='{http://ola.com/cabs/services}olaSOAPPort'
+    urlpattern='/olaRide'/>
+</endpoints>

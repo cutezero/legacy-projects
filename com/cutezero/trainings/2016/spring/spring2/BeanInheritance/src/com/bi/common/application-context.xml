@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- <bean class="com.bi.beans.Car" id="car">
+		<property name="brand" value="Tata"/>
+		<property name="model" value="Safari"/>
+		<property name="colour" value="white"/>
+		<property name="fuelType" value="Petrol"/>
+		<property name="price" value="2077987"/>
+	</bean>
+	<bean class="com.bi.beans.Car" id="car1" parent="car">
+		<property name="brand" value="Mahindra"/>
+		<property name="id" value="567"/>
+	</bean>
+	<bean class="com.bi.beans.Car" id="car2" parent="car">
+		<property name="id" value="566787"/>
+		<property name="brand" value="Mahindra"/>
+	</bean>
+	<bean class="com.bi.beans.Bus" id="bus1" parent="car">
+		<property name="id" value="56765"/>
+		<property name="brand" value="Eicher"/>
+	</bean> -->
+	
+	<bean id="car" abstract="true">
+		<constructor-arg name="brand" value="Tata"/>
+		<constructor-arg name="model" value="Safari"/>
+		<constructor-arg name="colour" value="white"/>
+		<constructor-arg name="fuelType" value="Petrol"/>
+		<constructor-arg name="price" value="2077987"/>
+	</bean>
+	<bean class="com.bi.beans.Car" id="car1" parent="car">
+		<constructor-arg name="id" value="6899"/>
+		
+	</bean>
+	<bean class="com.bi.beans.Car" id="car2" parent="car">
+		<constructor-arg name="id" value="689"/>
+		
+	</bean>
+	<bean class="com.bi.beans.Bus" id="bus1" parent="car">
+		<constructor-arg name="id" value="9099"/>
+		<constructor-arg name="fuelType" value="Diesiel"/>
+		<constructor-arg name="price" value="6806899"/>
+		
+	</bean>
+	
+</beans>

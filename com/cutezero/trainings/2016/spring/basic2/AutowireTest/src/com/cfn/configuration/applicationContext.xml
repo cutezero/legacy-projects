@@ -1,0 +1,12 @@
+<!-- applicationContext.xml -->
+<beans xmlns="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
+	
+	<bean id="lister" class="com.cfn.beans.MovieLister" autowire="byName">
+		<property name="year" value="2017"/>
+	</bean>
+	<bean id="finder" class="com.cfn.beans.MovieFinder"/>	
+</beans>
+	

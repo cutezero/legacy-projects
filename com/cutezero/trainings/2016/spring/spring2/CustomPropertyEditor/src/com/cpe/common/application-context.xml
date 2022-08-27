@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
+
+	<bean class="com.cpe.beans.Metal" id="metal">
+		<property name="name" value="Steel"/>
+		<!-- <property name="dimension" ref="dimension"/> -->
+		<property name="dimension" value="200, 100, 50"/>
+	</bean>
+	<!-- <bean class="com.cpe.beans.Dimension" id="dimension">
+		<property name="length" value="200"/>
+		<property name="width" value="100"/>
+		<property name="thickness" value="50"/>
+	</bean> -->
+	
+	<!-- Configuration Approach -->
+	<!-- <bean class="org.springframework.beans.factory.config.CustomEditorConfigurer">
+      <property name="customEditors">
+       <map>
+         <entry key="com.cpe.beans.Dimension" value="com.cpe.editors.DimensionPropertyEditor"/>
+       </map>
+      </property>
+    </bean> -->
+	
+	<!-- <bean class="org.springframework.beans.factory.config.CustomEditorConfigurer">
+        <property name="customEditors">
+            <map>
+                <entry key="com.cpe.beans.Dimension.XmlCustomEditorExample$Phone"
+                       value="com.cpe.editors.DimensionPropertyEditor.XmlCustomEditorExample$CustomPhoneEditor"/>
+            </map>
+        </property>
+    </bean> -->
+</beans>

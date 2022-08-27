@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+<!-- 
+	<bean class="org.springframework.web.servlet.mvc.ParameterizableViewController" id="aboutUsController" name="/about-us.action">
+		<property name="viewName" value="about-us"></property>
+	</bean>
+	<bean class="org.springframework.web.servlet.mvc.ParameterizableViewController" id="contactUsController" name="/contact-us.action">
+		<property name="viewName" value="contact-us"></property>
+	</bean>
+ -->	
+ 	<bean class="org.springframework.web.servlet.mvc.UrlFilenameViewController" id="commonForwardingViewController" name="/contact-us.action /about-us.action"></bean>
+ <!-- 	
+ 	<bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+ 		<property name="mappings">
+ 			<props>
+ 				<prop key="/about-us.action">commonForwardingViewController</prop>
+ 				<prop key="/contact-us.action">commonForwardingViewController</prop>
+ 			</props>
+ 		</property>
+ 	</bean>
+  -->	
+ 	
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/jsp/"></property>
+		<property name="suffix" value=".jsp"></property>
+	</bean>
+</beans>

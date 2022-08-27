@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 14 Dec, 2017 2:59:28 PM by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.gurukul.model.Student" table="STUDENT">
+        <id name="studentId" type="int" column="STUDENTID">
+            <generator class="increment"/>
+        </id>
+        <property name="name" type="java.lang.String" column="NAME"/>
+        <property name="age" type="int" column="AGE"/>
+    </class>
+</hibernate-mapping>

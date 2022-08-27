@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="university" type="universityType"/>
+	<xs:group name="common-group1">
+		<xs:sequence>
+			<xs:element name="name" type="xs:string"/>
+			<xs:element name="location" type="locationType"/>
+		</xs:sequence>
+	</xs:group>
+	<xs:complexType name="locationType">
+		<xs:sequence>
+			<xs:element name="addressLine1" type="xs:string"/>
+			<xs:element name="city" type="xs:string"/>
+			<xs:element name="state" type="xs:string"/>
+			<xs:element name="zip" type="zipType"/>
+			<xs:element name="country" type="countryType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="zipType">
+		<xs:restriction base="xs:int">
+			<xs:totalDigits value="6"/>
+			<xs:minInclusive value="100000"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="countryType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="US"/>
+			<xs:enumeration value="India"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="universityType">
+		<xs:sequence>
+			<xs:group ref="common-group1"/>
+			<xs:element name="college" type="collegeType" minOccurs="1" maxOccurs="unbounded"/>
+			<xs:element name="chairman-name" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="collegeType">
+		<xs:sequence>
+			<xs:group ref="common-group1"/>
+			<xs:element name="principal-name" type="xs:string"/>
+			<xs:element name="courses" type="coursesType"/>
+			<xs:element name="staffs" type="staffsType"/>
+			<xs:element name="students" type="studentsType" minOccurs="1" maxOccurs="unbounded"/>
+			<xs:element name="payment-info" type="payment-infoType"/>
+		</xs:sequence>
+		<xs:attribute name="approvedBy" type="xs:string" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="payment-infoType">
+		<xs:sequence>
+			<xs:element name="is-installment" type="xs:boolean"/>
+			<xs:element name="amount" type="xs:double"/>
+			<xs:choice>
+				<xs:element name="card" type="cardType"/>
+				<xs:element name="cash" type="xs:string"/>
+			</xs:choice>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="cardType">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attribute name="card-type" type="cardTypeEnum"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:simpleType name="cardTypeEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Debit Card"/>
+			<xs:enumeration value="Credit Card"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="studentsType">
+		<xs:all>
+			<xs:element name="name" type="xs:string"/>
+			<xs:element name="id" type="xs:int"/>
+		</xs:all>
+		<xs:attribute name="gender" type="xs:string"/>
+	</xs:complexType>
+	<xs:complexType name="staffsType">
+		<xs:choice minOccurs="1" maxOccurs="unbounded">
+			<xs:element name="teaching-staff" type="teaching-staffType"/>
+			<xs:element name="non-teaching-staf" type="xs:string"/>
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="teaching-staffType">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attribute name="gender" type="xs:string"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="coursesType">
+		<xs:sequence>
+			<xs:element name="course" type="courseType" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="courseType">
+		<xs:sequence>
+			<xs:element name="name" type="xs:string" nillable="false"/>
+			<xs:element name="duration-in-days" type="xs:int"/>
+			<xs:element name="fee" type="xs:float"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

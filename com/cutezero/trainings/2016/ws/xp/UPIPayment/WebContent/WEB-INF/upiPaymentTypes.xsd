@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+targetNamespace="http://www.npci.org.in/digitalPayment/types" 
+xmlns:upt="http://www.npci.org.in/digitalPayment/types" 
+elementFormDefault="qualified">
+
+	<xsd:element name="from-account" type="upt:upi-account" />
+	<xsd:element name="to-account" type="upt:upi-account" />
+	<xsd:element name="amount" type="xsd:double"/>
+	<xsd:complexType name="upi-account">
+		<xsd:sequence>
+			<xsd:element name="vpa" type="xsd:string" />
+			<xsd:element name="ifsc" type="xsd:string"/>
+			<xsd:element name="account-holder-name" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:element name="reciept">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="transaction-no" type="xsd:string"/>
+				<xsd:element name="from-account" type="xsd:string"/>
+				<xsd:element name="to-account" type="xsd:string"/>
+				<xsd:element name="amount" type="xsd:double"/>
+				<xsd:element name="status" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

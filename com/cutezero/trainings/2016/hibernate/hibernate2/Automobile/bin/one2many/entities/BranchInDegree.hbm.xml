@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 10 Nov, 2017 6:07:29 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="one2many.entities.BranchInDegree" table="BRANCHINDEGREE">
+        <id name="branchId" type="int">
+            <column name="BRANCHID" />
+            <generator class="assigned" />
+        </id>
+        <property name="branchName" type="java.lang.String">
+            <column name="BRANCHNAME" />
+        </property>
+        <property name="branchCode" type="java.lang.String">
+            <column name="BRANCHCODE" />
+        </property>
+        <set name="subjects" table="SUBJECT" inverse="false" lazy="true">
+            <key>
+                <column name="BRANCHID" />
+            </key>
+            <one-to-many class="one2many.entities.Subject" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean class="com.cdi.beans.Meeting" id="meeting">
+		<constructor-arg name="participents">
+			<set value-type="java.lang.String">
+				<value>Particepent1Lenovo</value>
+				<value>Dell</value>
+				<value>HP</value>
+				<value>Micromax</value>
+			</set>
+		</constructor-arg>
+		<property name="todo">
+			<list value-type="java.lang.String">
+				<value>design</value>
+				<value>developement</value>
+				<value>discussion</value>
+			</list>
+		</property>
+	</bean>
+
+	<!-- <bean class="com.cdi.beans.Organiser" id="organiser"> <constructor-arg> 
+		<map> <entry key="welcome Function" value-ref="meeting" /> <entry key="welcome 
+		2" value-ref="meeting" /> </map> </constructor-arg> </bean> -->
+</beans>

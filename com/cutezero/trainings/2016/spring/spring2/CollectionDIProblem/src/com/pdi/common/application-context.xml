@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean class="com.pdi.beans.Meeting" id="meeting">
+		<!-- <property name="todos">
+			<list>
+				<value>Amen</value>
+				<value>Tutu</value>
+				<value>Suta</value>
+			</list>
+		</property> -->
+		<property name="todos" ref="arrayList"></property>
+	</bean>
+	<bean class="java.util.ArrayList" id="arrayList"></bean>
+</beans>

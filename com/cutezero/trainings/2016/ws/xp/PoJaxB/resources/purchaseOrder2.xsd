@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	elementFormDefault="qualified" attributeFormDefault="unqualified"
+	targetNamespace="http://ebay.in/sales/products" xmlns:ebay="http://ebay.in/sales/products">
+	<xs:element name="purchaseOrder" type="ebay:purchaseOrderType" />
+	<xs:element name="shippingAddress" type="ebay:shippingAddressType"/>
+	<xs:complexType name="purchaseOrderType">
+		<xs:sequence>
+			<xs:element name="items" type="ebay:itemsType" />
+			<xs:element name="shippingAddress" type="ebay:shippingAddressType" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="itemsType">
+		<xs:sequence>
+			<xs:element name="itemCode" type="xs:string" />
+			<xs:element name="quantity" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="shippingAddressType">
+		<xs:sequence>
+			<xs:element name="city" type="xs:string" />
+			<xs:element name="state" type="xs:string" />
+			<xs:element name="zip" type="xs:int" />
+		</xs:sequence>
+		<xs:attribute name="addressType" type="xs:string" use="required">
+		</xs:attribute>
+	</xs:complexType>
+</xs:schema>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean class="com.bs.beans.Toy" id="toy" scope="prototype" dependency-check="all">
+		<property name="toyId" value="957"/>
+		<property name="toyName" value="Truck" />
+		<property name="motor" ref="motor"/>
+	</bean>
+	<bean class="com.bs.beans.Motor" id="motor">
+		<property name="motorId" value="453"/>
+		<property name="motorType" value="Mechanical"/>
+	</bean>
+</beans>

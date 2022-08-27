@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping" id="handlerMapping">
+		<property name="mappings">
+			<props>
+				<prop key="/welcome.mvc">welcomeViewController</prop>
+			</props>
+		</property>
+	</bean>
+	
+	<bean class="com.mvc.controller.WelcomeViewController" id="welcomeViewController"></bean>
+	
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" id="viewResolver">
+		<property name="prefix" value="/WEB-INF/views/"/>
+		<property name="suffix" value=".jsp"/>
+	</bean>
+	
+</beans>

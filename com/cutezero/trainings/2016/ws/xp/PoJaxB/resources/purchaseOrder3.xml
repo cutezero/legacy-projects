@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ebay:shippingAddress addressType="Permanent" xmlns:ebay="http://ebay.in/sales/products" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://ebay.in/sales/products file:///G:/SOAP_1/XMLConcepts/Namespace%20concept/puchaseOrder.xsd">
+	
+		<ebay:city>HYD</ebay:city>
+		<ebay:state>TS</ebay:state>
+		<ebay:zip>500038</ebay:zip>
+	</ebay:shippingAddress>

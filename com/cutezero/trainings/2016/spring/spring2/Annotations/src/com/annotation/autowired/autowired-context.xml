@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+<!-- TO tell the IOC that we provided some configuration at annotation  -->
+	<context:annotation-config/>
+	
+	<bean class="com.annotation.autowired.Chip" id="chip">
+		<property name="chipNo" value="234"/>
+		<property name="chipType" value="32bit"/>
+	</bean>
+	
+	<bean class="com.annotation.autowired.Sensor" id="sensor">
+		<property name="sensorId" value="89743"/>
+		<property name="sensorType" value="Infrared"/>
+	</bean>
+	<bean class="com.annotation.autowired.Sensor" id="sensor2">
+		<property name="sensorId" value="78979"/>
+		<property name="sensorType" value="Bluetooth"/>
+	</bean>
+	<bean class="com.annotation.autowired.Sensor" id="sensor3">
+		<property name="sensorId" value="45658"/>
+		<property name="sensorType" value="NFC"/>
+		<qualifier value="sensor5" type="org.springframework.beans.factory.annotation.Qualifier"/>
+	</bean>
+	<bean class="com.annotation.autowired.Robot" id="robot"/>
+</beans>

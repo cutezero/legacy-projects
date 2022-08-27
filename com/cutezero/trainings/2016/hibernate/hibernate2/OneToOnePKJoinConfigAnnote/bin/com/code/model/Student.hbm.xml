@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 14 Dec, 2017 2:59:28 PM by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping package="com.code.model">
+	<class name="Student" table="STUDENT_HBM">
+		<id name="studentId" column="STUDENT_ID" length="5" type="int">
+			<generator class="increment"/>
+		</id>
+		<property name="name" column="S_NAME" length="15"/>
+		<property name="age" column="S_AGE" />
+		
+		<one-to-one name="address" cascade="all" />
+		
+		
+	</class>
+</hibernate-mapping>

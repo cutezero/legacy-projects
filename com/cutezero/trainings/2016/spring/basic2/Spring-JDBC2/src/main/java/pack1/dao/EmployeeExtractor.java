@@ -1,0 +1,31 @@
+package pack1.dao;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.HashSet;
+import java.util.Set;
+
+import org.springframework.dao.DataAccessException;
+import org.springframework.jdbc.core.ResultSetExtractor;
+
+public class EmployeeExtractor implements ResultSetExtractor 
+{
+	public Object extractData(ResultSet rs) throws SQLException, DataAccessException {
+		Set set=new HashSet();
+		int count=1;
+		while(rs.next())
+		{
+			if(count==1 || count==3 || count==7)
+			{
+				Employee e=new Employee();
+				e.setEmpNo(rs.getInt(1));
+				e.seteName(rs.getString(2));
+				e.setSal(rs.getInt(3));
+				e.setDeptNo(rs.getInt(4));
+				set.add(e);
+			}
+			count++;
+		}
+		return set;
+	}
+}

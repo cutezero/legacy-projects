@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<definitions name="BookInfoService" targetNamespace="http://wrox.com/sales/books/service" xmlns:tns="http://wrox.com/sales/books/service" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <types/>
+  <message name="BookInfo_getBookPrice">
+    <part name="String_1" type="xsd:string"/></message>
+  <message name="BookInfo_getBookPriceResponse">
+    <part name="result" type="xsd:float"/></message>
+  <portType name="BookInfo">
+    <operation name="getBookPrice" parameterOrder="String_1">
+      <input message="tns:BookInfo_getBookPrice"/>
+      <output message="tns:BookInfo_getBookPriceResponse"/></operation></portType>
+  <binding name="BookInfoBinding" type="tns:BookInfo">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc"/>
+    <operation name="getBookPrice">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded" namespace="http://wrox.com/sales/books/service"/></input>
+      <output>
+        <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded" namespace="http://wrox.com/sales/books/service"/></output></operation></binding>
+  <service name="BookInfoService">
+    <port name="BookInfoPort" binding="tns:BookInfoBinding">
+      <soap:address location="REPLACE_WITH_ACTUAL_URL"/></port></service></definitions>

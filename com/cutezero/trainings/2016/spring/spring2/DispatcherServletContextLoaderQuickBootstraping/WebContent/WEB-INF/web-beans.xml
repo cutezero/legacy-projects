@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- <bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping"></bean> 
+		<bean class="org.springframework.web.servlet.mvc.ParameterizableViewController" 
+		name="/about-us.mvc"> <property name="viewName" value="about-us"></property> 
+		</bean> <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver"> 
+		<property name="prefix" value="/WEB-INF/views/"></property> <property name="suffix" 
+		value=".jsp"></property> </bean> <bean class="com.quickboot.interceptors.StatusHandlerInterceptor" 
+		id="statusHandlerInterceptor"> in no way we can add this interceptor to a 
+		handlerMapping( we can go for mvc config approach as below) </bean> -->
+
+	<!-- <bean class="com.quickboot.interceptors.StatusHandlerInterceptor"
+		id="statusHandlerInterceptor" />
+	 -->
+	<mvc:view-controller path="/about-us.mvc"
+		view-name="about-us" />
+	<mvc:view-controller path="/contact-us.mvc"
+		view-name="contact-us" />
+	<mvc:view-resolvers>
+		<mvc:jsp prefix="/WEB-INF/views/" suffix=".jsp" />
+	</mvc:view-resolvers>
+	
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/about-us.mvc" />
+<!-- 			<ref bean="statusHandlerInterceptor" /> -->
+	<bean class="com.quickboot.interceptors.StatusHandlerInterceptor"
+		id="statusHandlerInterceptor" />
+	
+			<!-- or directly bean also configured here as inner bean -->
+		</mvc:interceptor>
+	</mvc:interceptors>
+
+</beans>

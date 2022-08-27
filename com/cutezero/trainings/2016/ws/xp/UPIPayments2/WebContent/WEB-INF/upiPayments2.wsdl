@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" 
+xmlns:ups="http://www.upi.org/upiPayments2/service" 
+xmlns:upt="http://www.upi.org/upiPayments2/types" 
+xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+name="upiPayments2" 
+targetNamespace="http://www.upi.org/upiPayments2/service">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.upi.org/upiPayments2/types">
+    	<xsd:element name="from-account" type="upt:upi-account" />
+	<xsd:element name="to-account" type="upt:upi-account" />
+	<xsd:element name="amount" type="xsd:double"/>
+	<xsd:complexType name="upi-account">
+		<xsd:sequence>
+			<xsd:element name="vpa" type="xsd:string" />
+			<xsd:element name="ifsc" type="xsd:string"/>
+			<xsd:element name="account-holder-name" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:element name="reciept">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="transaction-no" type="xsd:string"/>
+				<xsd:element name="from-account" type="xsd:string"/>
+				<xsd:element name="to-account" type="xsd:string"/>
+				<xsd:element name="amount" type="xsd:double"/>
+				<xsd:element name="status" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="sendMoney">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="upt:from-account"/>
+				<xsd:element ref="upt:to-account"/>
+				<xsd:element ref="upt:amount"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="sendMoneyResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="upt:reciept"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="sendMoney">
+		<wsdl:part element="upt:sendMoney" name="inParameters" />
+	</wsdl:message>
+	<wsdl:message name="sendMoneyResponse">
+		<wsdl:part element="upt:sendMoneyResponse" name="outParameters" />
+	</wsdl:message>
+	<wsdl:portType name="upiPayment">
+		<wsdl:operation name="sendMoney">
+			<wsdl:input message="ups:sendMoney" />
+			<wsdl:output message="ups:sendMoneyResponse" />
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="upiPaymentSOAPBinding" type="ups:upiPayment">
+		<soap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="sendMoney">
+			<soap:operation
+				soapAction="http://www.npci.org.in/digitalPayment/service/sendMoney" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="upiPayment">
+		<wsdl:port binding="ups:upiPaymentSOAPBinding" name="upiPaymentSOAPPort">
+			<soap:address location="http://www.upi.org/" />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

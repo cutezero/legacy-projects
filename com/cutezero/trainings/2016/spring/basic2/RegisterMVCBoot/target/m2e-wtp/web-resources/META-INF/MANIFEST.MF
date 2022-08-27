@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Implementation-Title: RegisterMVCBoot
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: Srikanta.ydon
+Implementation-Vendor-Id: com.cfn
+Build-Jdk: 1.8.0_31
+Created-By: Maven Integration for Eclipse
+Implementation-Vendor: Pivotal Software, Inc.
+

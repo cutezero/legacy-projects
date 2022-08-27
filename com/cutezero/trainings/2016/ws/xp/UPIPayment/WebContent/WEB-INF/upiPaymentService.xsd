@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.npci.org.in/digitalPayment/service" 
+xmlns:ups="http://www.npci.org.in/digitalPayment/service" 
+xmlns:upt="http://www.npci.org.in/digitalPayment/types"
+elementFormDefault="qualified"
+>
+	<import namespace="http://www.npci.org.in/digitalPayment/types" schemaLocation="upipaymentTypes.xsd"></import>
+	<element name="sendMoney">
+		<complexType>
+			<sequence>
+				<element ref="upt:from-account"/>
+				<element ref="upt:to-account"/>
+				<element ref="upt:amount"/>
+			</sequence>
+		</complexType>
+	</element>
+	<element name="sendMoneyResponse">
+		<complexType>
+			<sequence>
+				<element ref="upt:reciept"/>
+			</sequence>
+		</complexType>
+	</element>
+</schema>

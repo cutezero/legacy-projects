@@ -1,0 +1,20 @@
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+	<hibernate-mapping package="com.cfn.hibernate.model">
+	<class name="Payment" >
+	<id name="txId" length="10"/>
+	<property name="amount" />
+	<property name="txDate" type="date"/>
+	<union-subclass name="Card" table="card">
+	
+	<property name="cardNo"/>
+	<property name="cardType" length="10"/>
+	</union-subclass>
+	<union-subclass name="Cheque" table="cheque">
+	
+	<property name="chequeNo" column="chno"/>
+	<property name="chequeType" column="chtype" length="10"/>
+	</union-subclass>
+	</class>
+	</hibernate-mapping>

@@ -1,0 +1,16 @@
+package com.rule;
+
+import com.cfn.drools.model.Product;
+
+rule "offer for Diamond"
+	when
+		productObject: Product(type=="diamond")
+	then
+		productObject.setDiscount(16);
+	end
+rule "offer for Gold"
+	when
+		productObject: Product(type=="gold")
+	then
+		productObject.setDiscount(26);
+	end

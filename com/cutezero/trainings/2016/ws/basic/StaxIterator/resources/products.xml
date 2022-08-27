@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<products>
+	<product>
+		<product-code>pc8948</product-code>
+		<product-name>HTC</product-name>
+		<product-description>Internal:16GB RAM:2GB</product-description>
+		<product-price>7839</product-price>
+	</product>
+	<product>
+		<product-code>pc8455</product-code>
+		<product-name>Micromax</product-name>
+		<product-description>Internal:32GB RAM:4GB</product-description>
+		<product-price>17839</product-price>
+	</product>
+</products>

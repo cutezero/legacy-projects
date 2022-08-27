@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE emp SYSTEM "First.dtd" >
+<emp>
+	<eid>77</eid>
+	<ename>elama</ename>
+	<esal>41.23</esal>
+</emp>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<definitions name="IRCTCService" targetNamespace="http://irctc.com/partners/ticketsinfo/service" xmlns:tns="http://irctc.com/partners/ticketsinfo/service" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:ns2="http://irctc.com/partners/ticketsinfo/types" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <types>
+    <schema targetNamespace="http://irctc.com/partners/ticketsinfo/types" xmlns:tns="http://irctc.com/partners/ticketsinfo/types" xmlns:soap11-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://www.w3.org/2001/XMLSchema">
+      <import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+      <complexType name="JourneyInfo">
+        <sequence>
+          <element name="destination" type="string"/>
+          <element name="journeyDate" type="string"/>
+          <element name="source" type="string"/></sequence></complexType>
+      <complexType name="PassengerInfo">
+        <sequence>
+          <element name="age" type="int"/>
+          <element name="name" type="string"/>
+          <element name="proofId" type="string"/></sequence></complexType>
+      <complexType name="Ticket">
+        <sequence>
+          <element name="pnr" type="long"/>
+          <element name="seatNo" type="string"/>
+          <element name="trainNumber" type="int"/></sequence></complexType></schema></types>
+  <message name="IRCTCTicket_bookTicket">
+    <part name="JourneyInfo_1" type="ns2:JourneyInfo"/>
+    <part name="PassengerInfo_2" type="ns2:PassengerInfo"/></message>
+  <message name="IRCTCTicket_bookTicketResponse">
+    <part name="result" type="xsd:long"/></message>
+  <message name="IRCTCTicket_getOffer">
+    <part name="String_1" type="xsd:string"/></message>
+  <message name="IRCTCTicket_getOfferResponse">
+    <part name="result" type="xsd:string"/></message>
+  <message name="IRCTCTicket_getTicketForBooking">
+    <part name="JourneyInfo_1" type="ns2:JourneyInfo"/>
+    <part name="PassengerInfo_2" type="ns2:PassengerInfo"/></message>
+  <message name="IRCTCTicket_getTicketForBookingResponse">
+    <part name="result" type="ns2:Ticket"/></message>
+  <message name="IRCTCTicket_getTicketForPnr">
+    <part name="long_1" type="xsd:long"/></message>
+  <message name="IRCTCTicket_getTicketForPnrResponse">
+    <part name="result" type="ns2:Ticket"/></message>
+  <portType name="IRCTCTicket">
+    <operation name="bookTicket" parameterOrder="JourneyInfo_1 PassengerInfo_2">
+      <input message="tns:IRCTCTicket_bookTicket"/>
+      <output message="tns:IRCTCTicket_bookTicketResponse"/></operation>
+    <operation name="getOffer" parameterOrder="String_1">
+      <input message="tns:IRCTCTicket_getOffer"/>
+      <output message="tns:IRCTCTicket_getOfferResponse"/></operation>
+    <operation name="getTicketForBooking" parameterOrder="JourneyInfo_1 PassengerInfo_2">
+      <input message="tns:IRCTCTicket_getTicketForBooking"/>
+      <output message="tns:IRCTCTicket_getTicketForBookingResponse"/></operation>
+    <operation name="getTicketForPnr" parameterOrder="long_1">
+      <input message="tns:IRCTCTicket_getTicketForPnr"/>
+      <output message="tns:IRCTCTicket_getTicketForPnrResponse"/></operation></portType>
+  <binding name="IRCTCTicketBinding" type="tns:IRCTCTicket">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc"/>
+    <operation name="bookTicket">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded" namespace="http://irctc.com/partners/ticketsinfo/service"/></input>
+      <output>
+        <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded" namespace="http://irctc.com/partners/ticketsinfo/service"/></output></operation>
+    <operation name="getOffer">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded" namespace="http://irctc.com/partners/ticketsinfo/service"/></input>
+      <output>
+        <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded" namespace="http://irctc.com/partners/ticketsinfo/service"/></output></operation>
+    <operation name="getTicketForBooking">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded" namespace="http://irctc.com/partners/ticketsinfo/service"/></input>
+      <output>
+        <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded" namespace="http://irctc.com/partners/ticketsinfo/service"/></output></operation>
+    <operation name="getTicketForPnr">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded" namespace="http://irctc.com/partners/ticketsinfo/service"/></input>
+      <output>
+        <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded" namespace="http://irctc.com/partners/ticketsinfo/service"/></output></operation></binding>
+  <service name="IRCTCService">
+    <port name="IRCTCTicketPort" binding="tns:IRCTCTicketBinding">
+      <soap:address location="REPLACE_WITH_ACTUAL_URL"/></port></service></definitions>

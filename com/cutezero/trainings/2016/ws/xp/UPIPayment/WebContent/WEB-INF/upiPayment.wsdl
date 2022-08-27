@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:ups="http://www.npci.org.in/digitalPayment/service" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="upiPayment"
+	targetNamespace="http://www.npci.org.in/digitalPayment/service"
+	xmlns:upt="http://www.npci.org.in/digitalPayment/types">
+	<wsdl:types>
+		<xsd:schema targetNamespace="http://www.npci.org.in/digitalPayment/service">
+			<xsd:include schemaLocation="upiPaymentService.xsd" />
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="sendMoney">
+		<wsdl:part element="ups:sendMoney" name="inParameters" />
+	</wsdl:message>
+	<wsdl:message name="sendMoneyResponse">
+		<wsdl:part element="ups:sendMoneyResponse" name="outParameters" />
+	</wsdl:message>
+	<wsdl:portType name="upiPayment">
+		<wsdl:operation name="sendMoney">
+			<wsdl:input message="ups:sendMoney" />
+			<wsdl:output message="ups:sendMoneyResponse" />
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="upiPaymentSOAPBinding" type="ups:upiPayment">
+		<soap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="sendMoney">
+			<soap:operation
+				soapAction="http://www.npci.org.in/digitalPayment/service/sendMoney" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="upiPayment">
+		<wsdl:port binding="ups:upiPaymentSOAPBinding" name="upiPaymentSOAPPort">
+			<soap:address location="http://www.example.org/" />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

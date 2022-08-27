@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:task="http://www.springframework.org/schema/task"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd
+		http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-4.2.xsd">
+	
+	<context:component-scan base-package="com.cfn"/>
+	
+	<bean id="javaMailSenderImpl" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<property name="host" value="smtp.gmail.com"/>
+		<property name="username" value="sndy60@gmail.com"/>
+		<property name="password" value="sandy@9178"/>
+		<property name="javaMailProperties">		
+			<value>
+				mail.transport.protocol=smtp
+				mail.smtp.auth=true
+				mail.smtp.port=465
+				mail.smtp.socketFactory.port=465
+				mail.smtp.socketFactory.class=javax.net.ssl.SSLSocketFactory
+				mail.smtp.starttls.enable=true				
+			</value>
+		<!-- 
+				mail.host=smtp.gmail.com
+				mail.port=587
+				mail.username=<gmail-username@gmail.com>
+				mail.password=<gmail-password>
+				mail.transport.protocol=smtp
+				mail.smtp.auth=true
+				mail.smtp.starttls.enable=true
+				mail.from.email=<gmail-username@gmail.com>
+		 -->
+		</property>
+	</bean>
+
+	
+	<task:annotation-driven/>
+
+</beans>

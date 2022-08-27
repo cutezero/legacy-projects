@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ebay:purchaseOrder xmlns:ebay="http://ebay.in/sales/products" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://ebay.in/sales/products file:///G:/SRIMAN_1/WS_2/XML_XSDConcepts/Namespace%20concept/purchaseOrder2.xsd">
+	<ebay:items>
+		<ebay:item>
+			<ebay:itemCode>hrek44</ebay:itemCode>
+			<ebay:quantity>56</ebay:quantity>
+		</ebay:item>
+		<ebay:item>
+			<ebay:itemCode>hgk44</ebay:itemCode>
+			<ebay:quantity>47</ebay:quantity>
+		</ebay:item>
+	</ebay:items>
+	<ebay:shippingAddress addressType="Permanent">
+		<ebay:city>BBSR</ebay:city>
+		<ebay:state>ODisha</ebay:state>
+		<ebay:zip>761004</ebay:zip>
+	</ebay:shippingAddress>
+</ebay:purchaseOrder>

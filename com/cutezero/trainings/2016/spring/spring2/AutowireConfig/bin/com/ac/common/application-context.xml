@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	
+	<!-- <bean class="com.ac.beans.Chip" id="chip1">
+		<property name="chipId" value="9878"/>
+		<property name="chipType" value="64bit"/>
+	</bean> 
+	 -->
+	<bean class="com.ac.beans.Chip" id="chip">
+		<property name="chipId" value="9898"/>
+		<property name="chipType" value="32bit"/>
+	</bean>
+	
+	<bean class="com.ac.beans.Sensor" id="sensor">
+		<property name="senserId" value="0898"/>
+		<property name="sensorType" value="Infrared"/>
+	</bean>
+	
+<!-- 	<bean class="com.ac.beans.Robot" id="robot" autowire="byName"> -->
+	<bean class="com.ac.beans.Robot" id="robot" autowire="byType">
+<!-- 	<bean class="com.ac.beans.Robot" id="robot" autowire="constructor"> -->
+	</bean>
+
+</beans>

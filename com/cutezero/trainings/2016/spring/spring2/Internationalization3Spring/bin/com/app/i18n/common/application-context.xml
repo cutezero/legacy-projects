@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!-- The following class id must be "messageSource" only 
+		if you are creating IOC with ApplicationContext. 
+		Because ApplicationContext will detect(search) 
+		the messageSource Object automatically 
+		by this id inside the IOC. ApplicationContext(interface) extends from 
+		MessageSource( interface) whose implementation is ResourceBundleMessageSource
+		and ReloadableResourceBundleMessageResource -->
+		
+	<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+
+<!-- #2 -->
+	<!-- <bean id="messageSource2" class="org.springframework.context.support.ResourceBundleMessageSource">  -->
+	
+		<property name="basenames">
+		<list>
+		<value>com/app/i18n/props/messages</value>
+		<value>com/app/i18n/props/error</value>
+		</list>
+		</property>
+	</bean>
+	
+	
+</beans>

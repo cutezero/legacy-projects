@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean class="com.bfpp.dao.ConnectionFactory" id="connectionFactory">
+		<constructor-arg name="driverClassName" value="${db.driverClassName}"/>
+		<constructor-arg name="url" value="${db.url}"/>
+		<constructor-arg name="username" value="${db.username}"/>
+		<constructor-arg name="password" value="${db.password}"/>
+	</bean>
+
+	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer" id="propertyPlaceholderConfigurer">
+		<!-- <property name="location" value="classpath:com/bfpp/props/db_mysql.properties"></property> -->
+		<property name="location" value="file:G:/Archive/db_mysql2.properties"></property>
+	</bean>
+	
+</beans>

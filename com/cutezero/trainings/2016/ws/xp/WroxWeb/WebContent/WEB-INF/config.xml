@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<!--
+		Copyright 2004 Sun Microsystems, Inc. All rights reserved. SUN
+		PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
+	-->
+<configuration xmlns="http://java.sun.com/xml/ns/jax-rpc/ri/config">
+	<service name="BookInfoService" 
+		targetNamespace="http://wrox.com/sales/books/service"
+		typeNamespace="http://wrox.com/sales/books/types" 
+		packageName="com.bw.service.bindings">
+		<interface name="com.wrox.provider.service.BookInfo"
+			servantName="com.wrox.provider.service.BookInfoImpl" />
+	</service>
+</configuration>

@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 9 Nov, 2017 2:27:27 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.one2one.entities.ReportSheet" table="REPORTSHEET">
+        <id name="studentId" type="java.lang.String">
+            <column name="STUDENTID" />
+            <generator class="foreign" >
+            	<param name="property">student</param>
+            </generator>
+        </id>
+        <property name="reportNo" type="java.lang.String">
+            <column name="REPORTNO" />
+        </property>
+        <property name="comments" type="java.lang.String">
+            <column name="COMMENTS" />
+        </property>
+        <property name="rating" type="java.lang.String">
+            <column name="RATING" />
+        </property>
+        <one-to-one name="student" class="com.one2one.entities.Student"></one-to-one>
+    </class>
+</hibernate-mapping>

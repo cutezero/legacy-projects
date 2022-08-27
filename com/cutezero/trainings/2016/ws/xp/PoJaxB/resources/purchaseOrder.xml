@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ebay:purchaseOrder xmlns:ebay="http://ebay.in/sales/products" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://ebay.in/sales/products file:///G:/SOAP_1/XMLConcepts/Namespace%20concept/puchaseOrder.xsd">
+	<ebay:items>
+		<ebay:itemCode>id5497</ebay:itemCode>
+		<ebay:quantity>76</ebay:quantity>
+	</ebay:items>
+	<ebay:shippingAddress addressType="Permanent">
+		<ebay:city>HYD</ebay:city>
+		<ebay:state>TS</ebay:state>
+		<ebay:zip>500038</ebay:zip>
+	</ebay:shippingAddress>
+</ebay:purchaseOrder>

@@ -1,0 +1,1 @@
+# com.namirs.hibernate2

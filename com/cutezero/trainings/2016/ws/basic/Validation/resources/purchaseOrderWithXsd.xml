@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<purchaseOrder xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="file:///G:/SOAP_1/XMLConcepts/purchaseOrder1.xsd">
+	<item>
+		<itemCode2>ic6898</itemCode2>
+		<quantity>23</quantity>
+	</item>
+	<shippingAddress>
+		<addressLine1>Bhimapur</addressLine1>
+		<addressLine2>Ganjam</addressLine2>
+		<city>BAM</city>
+		<state>Odisha</state>
+		<zip>761004</zip>
+		<country>India</country>
+	</shippingAddress>
+</purchaseOrder>

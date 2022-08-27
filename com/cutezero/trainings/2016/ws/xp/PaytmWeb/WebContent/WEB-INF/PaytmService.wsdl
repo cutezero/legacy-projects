@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<definitions name="PaytmService" targetNamespace="http://paytm.com/partners/service" xmlns:tns="http://paytm.com/partners/service" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:ns2="http://java.sun.com/jax-rpc-ri/internal" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <types>
+    <schema targetNamespace="http://java.sun.com/jax-rpc-ri/internal" xmlns:tns="http://java.sun.com/jax-rpc-ri/internal" xmlns:soap11-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://www.w3.org/2001/XMLSchema">
+      <import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+      <complexType name="list">
+        <complexContent>
+          <extension base="tns:collection">
+            <sequence/></extension></complexContent></complexType>
+      <complexType name="collection">
+        <complexContent>
+          <restriction base="soap11-enc:Array">
+            <attribute ref="soap11-enc:arrayType" wsdl:arrayType="anyType[]"/></restriction></complexContent></complexType></schema></types>
+  <message name="PaytmMovieSIE_bookMovieTicket">
+    <part name="String_1" type="xsd:string"/>
+    <part name="String_2" type="xsd:string"/></message>
+  <message name="PaytmMovieSIE_bookMovieTicketResponse">
+    <part name="result" type="xsd:string"/></message>
+  <message name="PaytmMovieSIE_cancelTicket">
+    <part name="String_1" type="xsd:string"/></message>
+  <message name="PaytmMovieSIE_cancelTicketResponse">
+    <part name="result" type="xsd:string"/></message>
+  <message name="PaytmRechargeSIE_recharge">
+    <part name="long_1" type="xsd:long"/></message>
+  <message name="PaytmRechargeSIE_rechargeResponse">
+    <part name="result" type="xsd:string"/></message>
+  <message name="PaytmRechargeSIE_recharge2">
+    <part name="long_1" type="xsd:long"/>
+    <part name="String_2" type="xsd:string"/>
+    <part name="String_3" type="xsd:string"/></message>
+  <message name="PaytmRechargeSIE_recharge2Response">
+    <part name="result" type="ns2:list"/></message>
+  <portType name="PaytmMovieSIE">
+    <operation name="bookMovieTicket" parameterOrder="String_1 String_2">
+      <input message="tns:PaytmMovieSIE_bookMovieTicket"/>
+      <output message="tns:PaytmMovieSIE_bookMovieTicketResponse"/></operation>
+    <operation name="cancelTicket" parameterOrder="String_1">
+      <input message="tns:PaytmMovieSIE_cancelTicket"/>
+      <output message="tns:PaytmMovieSIE_cancelTicketResponse"/></operation></portType>
+  <portType name="PaytmRechargeSIE">
+    <operation name="recharge" parameterOrder="long_1">
+      <input message="tns:PaytmRechargeSIE_recharge"/>
+      <output message="tns:PaytmRechargeSIE_rechargeResponse"/></operation>
+    <operation name="recharge2" parameterOrder="long_1 String_2 String_3">
+      <input message="tns:PaytmRechargeSIE_recharge2"/>
+      <output message="tns:PaytmRechargeSIE_recharge2Response"/></operation></portType>
+  <binding name="PaytmMovieSIEBinding" type="tns:PaytmMovieSIE">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc"/>
+    <operation name="bookMovieTicket">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded" namespace="http://paytm.com/partners/service"/></input>
+      <output>
+        <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded" namespace="http://paytm.com/partners/service"/></output></operation>
+    <operation name="cancelTicket">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded" namespace="http://paytm.com/partners/service"/></input>
+      <output>
+        <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded" namespace="http://paytm.com/partners/service"/></output></operation></binding>
+  <binding name="PaytmRechargeSIEBinding" type="tns:PaytmRechargeSIE">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc"/>
+    <operation name="recharge">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded" namespace="http://paytm.com/partners/service"/></input>
+      <output>
+        <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded" namespace="http://paytm.com/partners/service"/></output></operation>
+    <operation name="recharge2">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded" namespace="http://paytm.com/partners/service"/></input>
+      <output>
+        <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded" namespace="http://paytm.com/partners/service"/></output></operation></binding>
+  <service name="PaytmService">
+    <port name="PaytmMovieSIEPort" binding="tns:PaytmMovieSIEBinding">
+      <soap:address location="REPLACE_WITH_ACTUAL_URL"/></port>
+    <port name="PaytmRechargeSIEPort" binding="tns:PaytmRechargeSIEBinding">
+      <soap:address location="REPLACE_WITH_ACTUAL_URL"/></port></service></definitions>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
+
+	<tx:advice transaction-manager="transactionManager" id="tm">
+		<tx:attributes>
+		<!-- All the read-only(like getX, findX, fetchX ) kind methods not needed transaction -->
+			<tx:method name="get*" read-only="true"/>
+			
+		<!-- All the rest of methods needed transaction to avoid data inconsistent -->
+			<!-- 
+			<tx:method name="*" read-only="false" rollback-for="com.dt.exceptions.JobCompanyNotFoundException"/>
+			 -->
+			
+		<!-- the following is just an example of single method level attributes -->
+		<!-- To roll-back the transactions for checkedExceptions also we need to write 
+		the following "rollback-for" tag along with the Exceptions Name -->
+			<tx:method name="postJob" read-only="false" rollback-for="com.dt.exceptions.JobCompanyNotFoundException"/>
+			
+			
+			
+		</tx:attributes>
+		
+	</tx:advice>	
+	
+	<aop:config>
+		<aop:pointcut expression="within(com.dt.service.*)" id="servicePointcut"/>
+		<aop:advisor advice-ref="tm" pointcut-ref="servicePointcut"/>
+	</aop:config>
+</beans>

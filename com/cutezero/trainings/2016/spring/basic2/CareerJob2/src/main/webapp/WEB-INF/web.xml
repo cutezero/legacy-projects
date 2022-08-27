@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+    <display-name>CareerJob</display-name>
+    
+<!-- Context loader listener -->    
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>/WEB-INF/spring-servlet.xml</param-value>
+    </context-param>
+
+   <!--  <filter>
+        <filter-name>LoginFilter</filter-name>
+        <filter-class>glpi.filter.LoginFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>LoginFilter</filter-name>
+        <url-pattern>/index.jsp</url-pattern>
+    </filter-mapping>
+	
+	 
+
+    <listener>
+    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+	
+     <servlet>
+        <servlet-name>context</servlet-name>
+        <servlet-class>org.springframework.web.context.ContextLoaderServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+     </servlet>
+-->    
+    
+<!-- Servlet URL pattern configuration -->    
+    <servlet>
+    	<servlet-name>spring</servlet-name>
+    	<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+    	<load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+    	<servlet-name>spring</servlet-name>
+    	<url-pattern>*.html</url-pattern>
+    </servlet-mapping>
+    
+
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+        </welcome-file-list>
+    </web-app>

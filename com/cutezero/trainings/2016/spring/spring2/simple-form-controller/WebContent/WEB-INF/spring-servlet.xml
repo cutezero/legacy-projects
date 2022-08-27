@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		<property name="mappings">
+			<props>
+	<!-- 			<prop key="/add-product.action">productFormController</prop> -->
+				<prop key="/add-product.action">addProductFormController</prop>
+				<prop key="/do-add-product.action">addProductFormController</prop>
+			</props>
+		</property>
+	</bean>
+<!-- 	
+	<bean class="org.springframework.web.servlet.mvc.ParameterizableViewController" id="productFormController">
+		<property name="viewName" value="add-product"></property>
+	</bean>
+ -->	
+	<bean class="com.sfc.controller.AddProductFormController" id="addProductFormController">
+		<property name="formView" value="add-product"></property>
+		<property name="validator" ref="validator"></property>
+		<property name="commandClass" value="com.sfc.dto.ProductDtoIn"></property>
+		<!-- <property name="commandName" value="product"></property> -->
+		<property name="productService" ref="productService"></property>
+	</bean>
+	
+	<bean class="com.sfc.validator.AddFormValidator" id="validator"></bean>
+	
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/views/"></property>
+		<property name="suffix" value=".jsp"></property>
+	</bean>
+	<bean class="org.springframework.context.support.ResourceBundleMessageSource" id="messageSource">
+		<property name="basename" value="validate"></property>
+	</bean>
+	
+</beans>

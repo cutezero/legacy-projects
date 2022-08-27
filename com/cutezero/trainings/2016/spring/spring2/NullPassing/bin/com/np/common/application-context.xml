@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean class="com.np.components.Address" id="address">
+		<property name="addressLine1" value="SR Nagar"/>
+		<property name="addressLine2" value="near PoloceStn"/>
+		<property name="city" value="HYD"/>
+		<property name="zip" value="500038"/>
+	</bean>
+	<bean class="com.np.components.Person" id="person">
+		<constructor-arg> <null/></constructor-arg>
+		<constructor-arg value="25673">
+		</constructor-arg>
+		<property name="address" > <null/></property>
+	</bean>
+</beans>

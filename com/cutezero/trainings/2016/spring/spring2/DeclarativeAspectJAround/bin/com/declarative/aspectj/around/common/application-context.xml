@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.1.xsd">
+
+	<bean class="com.declarative.aspectj.around.beans.Calculator" id="calculator"></bean>
+	<bean class="com.declarative.aspectj.around.beans.Calculator" id="calculator1"></bean>
+	<bean class="com.declarative.aspectj.around.beans.Calculator" id="calculator2"></bean>
+	<bean class="com.declarative.aspectj.around.aspects.LoggingAspect" id="loggingAspect"></bean>
+	<bean class="com.declarative.aspectj.around.util.Cache" id="cache" factory-method="getInstatnce"></bean>
+	<bean class="com.declarative.aspectj.around.aspects.CacheAspect" id="cacheAspect">
+		<property name="cache" ref="cache"></property>
+	</bean>
+	
+	<aop:config>
+	
+	<!-- Incase of Pointcut, there are 6 types of pointcut designators are there( PCD) which allows us to apply the 
+	OGNL(Object Graphical Navigational Language) Expressions in different way to optimizing the performance over-head.
+	Followings are the different types of PCDs
+	      -->
+	
+	
+		<!-- <aop:pointcut expression="execution(* com.declarative.aspectj.around.beans.Calculator.*(..))" id="commonPointcut"/> -->
+		<aop:pointcut expression="within(com.declarative.aspectj.around.beans.*)" id="commonPointcut"/>
+		<!-- <aop:pointcut expression="target(com.declarative.aspectj.around.beans.Calculator)" id="commonPointcut"/> -->
+		<!-- <aop:pointcut expression="this(com.declarative.aspectj.around.beans.Calculator)" id="commonPointcut"/> -->
+		<!-- <aop:pointcut expression="bean(calculator1)" id="commonPointcut"/> -->
+		<aop:aspect ref="loggingAspect" order="1">
+			<!-- <aop:around method="log" pointcut="execution(* com.declarative.aspectj.around.beans.Calculator.add(..))" /> -->
+			<aop:around method="log" pointcut-ref="commonPointcut"/>
+		</aop:aspect>
+		
+		<aop:aspect ref="cacheAspect" order="1">
+			<aop:around method="cache" pointcut-ref="commonPointcut"/>
+		</aop:aspect>
+		
+		
+	</aop:config>
+
+</beans>

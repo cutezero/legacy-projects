@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<university xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="file:///G:/SOAP_1/XMLConcepts/unversity1.xsd">
+	<name/>
+	<location>
+		<addressLine1/>
+		<city/>
+		<state/>
+		<zip>739733</zip>
+		<country>India</country>
+	</location>
+	<college approvedBy="AICTE">
+		<name/>
+		<location>
+			<addressLine1/>
+			<city/>
+			<state/>
+			<zip>568944</zip>
+			<country>US</country>
+		</location>
+		<principal-name/>
+		<courses>
+			<course>
+				<name/>
+				<duration-in-days>45</duration-in-days>
+				<fee>3455</fee>
+			</course>
+		</courses>
+		<staffs>
+			<teaching-staff/>
+		</staffs>
+		<students>
+			<name/>
+			<id>347</id>
+		</students>
+		<payment-info>
+			<is-installment>true</is-installment>
+			<amount>3642</amount>
+			<card card-type="Debit Card"/>
+		</payment-info>
+	</college>
+	<chairman-name/>
+</university>

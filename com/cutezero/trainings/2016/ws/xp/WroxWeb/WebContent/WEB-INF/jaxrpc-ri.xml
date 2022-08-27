@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ Copyright 2004 Sun Microsystems, Inc. All rights reserved.
+ SUN PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
+-->
+
+<webServices
+    xmlns="http://java.sun.com/xml/ns/jax-rpc/ri/dd"
+    version="1.0"
+    targetNamespaceBase="http://wrox.com/sales/books/service"
+    typeNamespaceBase="http://wrox.com/sales/books/types"
+    urlPatternBase="/bookInfo">
+
+    <endpoint
+        name="BookInfo"
+        displayName="BookInfoService"
+        description="a book information to get it's price" 
+        wsdl="/WEB-INF/BookInfoService.wsdl"
+        interface="com.wrox.provider.service.BookInfo"  
+        implementation="com.wrox.provider.service.BookInfoImpl" 
+	     model="/WEB-INF/model-rpc-enc.xml.gz"/>
+ 
+    <endpointMapping
+        endpointName="BookInfo"
+        urlPattern="/bookInfo"/>
+
+</webServices>

@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 14 Dec, 2017 2:59:28 PM by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.gurukul.model.Address" table="ADDRESS">
+        <id name="addressId" type="int" column="ADDRESSID">
+            <generator class="foreign">
+              <param name="property">student</param>
+            </generator>
+        </id>
+  
+        <property name="state" type="java.lang.String" column="STATE"/>
+        
+        <property name="pin" type="int" column="PIN"/>
+        
+        <property name="phNo" type="long" column="PHON"/>
+        
+        <one-to-one name="student" class="com.gurukul.model.Student"/>
+    </class>
+</hibernate-mapping>

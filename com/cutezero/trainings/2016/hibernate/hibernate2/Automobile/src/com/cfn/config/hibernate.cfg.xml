@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+		"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="hibernate.connection.password">root</property>
+		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/demo</property>
+		<property name="hibernate.connection.username">root</property>
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+		<property name="hibernate.show_sql">true</property>
+		<property name="hbm2ddl.auto">create</property>
+		<property name="current_session_context_class">thread</property>
+		<!-- <property name="format_sql">true</property> -->
+
+<!-- 
+		<mapping class="com.one2one.entities.Student" />
+		<mapping class="com.one2one.entities.ReportSheet" />
+ -->
+ <!-- 
+	 	<mapping resource="com/one2one/entities/Student.hbm.xml" />
+		<mapping resource="com/one2one/entities/ReportSheet.hbm.xml" />
+  -->
+ <!-- 
+		<mapping class="one2one.bidirectional.entities.Customer" />
+		<mapping class="one2one.bidirectional.entities.Address" />
+  -->
+  
+ <!-- 
+	 	<mapping resource="one2one/bidirectional/entities/Customer.hbm.xml" />
+		<mapping resource="one2one/bidirectional/entities/Address.hbm.xml" />
+  -->
+ <!-- 
+		<mapping class="one2many.entities.BranchInDegree" />
+		<mapping class="one2many.entities.Subject" />
+  -->
+	 	<mapping resource="one2many/entities/BranchInDegree.hbm.xml" />
+		<mapping resource="one2many/entities/Subject.hbm.xml" /> 
+		
+		
+	</session-factory>
+</hibernate-configuration>

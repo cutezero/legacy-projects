@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.3.xsd">
+
+	<bean class="com.cudi.beans.Course" id="course">
+		<constructor-arg> 
+			<util:list value-type="java.lang.String">
+				<value>Java</value>
+				<value>PHP</value>
+				<value>Python</value>
+				<value>Scala</value>
+			</util:list>
+		</constructor-arg>
+		<constructor-arg>
+			<ref bean="faculties"/>
+		</constructor-arg>
+	</bean>
+	<util:set id="faculties" value-type="java.lang.String">
+				<value>Soumya</value>
+				<value>Sriman</value>
+				<value>Sekhar</value>
+				<value>Durga</value>
+			</util:set>
+	<bean class="com.cudi.beans.University" id="university">
+		<property name="hod">
+			<util:map key-type="java.lang.String" value-type="com.cudi.beans.Course">
+				<entry key="Srikanta" > 
+					<ref bean="course"/>
+				</entry>
+			</util:map>
+		</property>
+		<property name="toppers">
+			<props>
+				<prop key="Java"> Soumya</prop>
+				<prop key="PHP"> Bisu</prop>
+			</props>
+		</property>
+	</bean>
+</beans>

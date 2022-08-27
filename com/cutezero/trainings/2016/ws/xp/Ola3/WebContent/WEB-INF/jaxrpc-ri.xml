@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ Copyright 2004 Sun Microsystems, Inc. All rights reserved.
+ SUN PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
+-->
+
+<webServices
+    xmlns="http://java.sun.com/xml/ns/jax-rpc/ri/dd"
+    version="1.0"
+    targetNamespaceBase="http://ola.com/cabs/services"
+    typeNamespaceBase="http://ola.com/cabs/types"
+    urlPatternBase="/olaRide">
+
+    <endpoint
+        name="OlaCabs"
+        displayName="OlaCabsService"
+        description="Ola cab services " 
+        wsdl="/WEB-INF/ola.wsdl"
+        interface="com.ola.services.Ola_PortType"  
+        implementation="com.ola.services.Ola_PortTypeImpl" 
+	     model="/WEB-INF/model-rpc-enc.xml.gz"/>
+ 
+    <endpointMapping
+        endpointName="OlaCabs"
+        urlPattern="/olaRide"/>
+
+</webServices>

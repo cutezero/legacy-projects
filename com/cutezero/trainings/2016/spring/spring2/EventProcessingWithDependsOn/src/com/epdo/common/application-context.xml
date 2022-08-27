@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<bean class="com.epdo.util.Cache" id="cache" factory-method="getInstance"></bean>
+	<bean class="com.epdo.helper.CacheManager" id="cacheManager">
+		<constructor-arg>
+			<list value-type="java.util.ArrayList">
+			<ref bean="propertyAccessor"/>
+			<ref bean="dbAccessor"/>
+			</list>
+		</constructor-arg>
+	</bean>
+	<bean class="com.epdo.accessors.PropertyAccessor" id="propertyAccessor">
+		<constructor-arg value="key_properties"></constructor-arg>
+		<property name="fileLocation" value="com/epdo/props/states.properties"></property>
+	</bean>
+	<bean class="com.epdo.accessors.DbAccessor" id="dbAccessor">
+		<constructor-arg value="key_db"></constructor-arg>
+	</bean>
+<!-- Process class for invoking all the methods  -->
+<!-- 	<bean class="com.epdo.beans.ProcessData" id="processData">
+		<constructor-arg ref="cache"></constructor-arg>
+	</bean> -->
+	<bean class="com.epdo.beans.ProcessData2" id="processData2">
+		<constructor-arg ref="cache"></constructor-arg>
+	</bean>
+	
+	<!-- Event Processing related  -->
+	<bean class="com.epdo.ep.handlers.AddEventListener" >
+		<property name="propertiesFileName" value="com/epdo/props/states.properties"></property>
+	</bean>
+	<bean class="com.epdo.ep.handlers.ReloadEventListener" />
+	
+	
+	
+</beans>

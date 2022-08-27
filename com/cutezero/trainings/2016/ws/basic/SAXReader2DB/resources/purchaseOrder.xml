@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<purchaseOrder>
+	<orderItems>
+		<item>
+			<itemCode>101</itemCode>
+			<quantity>34</quantity>
+		</item>
+		<item>
+			<itemCode>102</itemCode>
+			<quantity>64</quantity>
+		</item>
+	</orderItems>
+	<shippingAddress>
+		<area>Bhimapur</area>
+		<district>Ganjam</district>
+		<state>Odisha</state>
+		<zip>761004</zip>
+	</shippingAddress>
+</purchaseOrder>

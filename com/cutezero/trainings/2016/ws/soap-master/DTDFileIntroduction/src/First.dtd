@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ELEMENT emp (eid?, ename, (esal|amt))>
+<!ELEMENT eid (#PCDATA)>
+<!ELEMENT ename (#PCDATA)>
+<!ELEMENT esal (#PCDATA)>
+<!ELEMENT amt (#PCDATA)>

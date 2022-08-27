@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<endpoints xmlns='http://java.sun.com/xml/ns/jax-rpc/ri/runtime' version='1.0'>
+  <endpoint
+    name='PaytmRechargeService'
+    interface='com.paytm.web.provider.recharge.PaytmRechargeSIE'
+    implementation='com.paytm.web.provider.recharge.PaytmRechargeSIEImpl'
+    tie='com.paytm.web.provider.recharge.PaytmRechargeSIE_Tie'
+    model='/WEB-INF/PaytmRechargeService_model.xml.gz'
+    wsdl='/WEB-INF/PaytmService.wsdl'
+    service='{http://paytm.com/partners/service/PaytmRechargeService}PaytmRechargeService'
+    port='{http://paytm.com/partners/service/PaytmRechargeService}PaytmRechargeSIEPort'
+    urlpattern='/recharge'/>
+  <endpoint
+    name='PaytmMovieService'
+    interface='com.paytm.web.provider.PaytmMovieSIE'
+    implementation='com.paytm.web.provider.PaytmMovieSIEImpl'
+    tie='com.paytm.web.provider.PaytmMovieSIE_Tie'
+    model='/WEB-INF/PaytmMovieService_model.xml.gz'
+    wsdl='/WEB-INF/PaytmService.wsdl'
+    service='{http://paytm.com/partners/service/PaytmMovieService}PaytmMovieService'
+    port='{http://paytm.com/partners/service/PaytmMovieService}PaytmMovieSIEPort'
+    urlpattern='/movies'/>
+</endpoints>

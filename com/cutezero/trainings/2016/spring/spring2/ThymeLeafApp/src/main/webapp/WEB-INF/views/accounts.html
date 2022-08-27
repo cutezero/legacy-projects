@@ -1,0 +1,22 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">;
+<html xmlns:th="http://www.thymeleaf.org">;
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Accounts</title>
+</head>
+<body>
+
+	<table th:if="${not #lists.isEmpty(accounts)}">
+		<tr>
+		<th>Name </th>
+		<th>Type</th>
+		<th>Balance </th>
+		</tr>
+		<tr th:each="account:${accounts}">
+		<td th:text=${account.name>Name</td>
+		<td th:text=${account.accountType>Type of acc.</td>
+		<td th:text=${account.amount>Amount</td>
+		</tr>
+	</table>
+</body>
+</html>

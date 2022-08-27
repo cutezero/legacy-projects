@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 14 Dec, 2017 2:59:28 PM by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping package="com.code.model">
+	<class name="Address" table="ADDRESS_HBM">
+		<id name="addressId" column="ADDR_ID">
+			<generator class="identity">
+				<!-- <param name="property">student</param> -->
+			</generator>
+		</id>
+		<property name="area" column="AREA"/>
+		<property name="city" column="CITY"/>
+		<property name="state" column="STATE"/>
+		<property name="zipCode" column="ZIP_CODE"/>
+		
+
+	</class>
+</hibernate-mapping>

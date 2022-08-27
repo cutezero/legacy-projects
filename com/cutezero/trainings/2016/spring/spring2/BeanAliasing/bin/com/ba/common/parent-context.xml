@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<bean class="com.ba.beans.Order" id="order">
+		<property name="orderId" value="AM58956"/>
+		<property name="orderValue" value="56788.89"/>
+		<property name="items">
+			<list>
+				<value>Samsung</value>
+				<value>Nokia</value>
+				<value>Kissan sause</value>
+				<value>Back cover</value>
+			</list>
+		</property>
+	</bean>
+	<bean class="com.ba.beans.Address" id="address">
+		<property name="addressLine1" value="SR Nagar"/>
+		<property name="state" value="AP"/>
+		<property name="zip" value="500038"/>
+	</bean>
+
+</beans>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
+
+<!-- 
+	<bean class="com.pe.beans.Book" id="book">
+		<property name="isbn" value="24593"/>
+		<property name="title" value="Wings Of Fire"/>
+		<property name="publishedDate" ref="publishedDate"/>
+		<property name="website" ref="website"/>
+		<property name="authors">
+			<array value-type="java.lang.String">
+				<value>President </value>
+				<value>Abdul Kalam</value>
+			</array>
+		</property>
+		<property name="document" ref="document"/>
+	</bean>
+	<bean class="java.util.Date" id="publishedDate"/>
+	<bean class="java.net.URL" id="website">
+		<constructor-arg value="http://www.google.com"/>
+	</bean>
+	<bean class="java.io.File" id="document">
+		<constructor-arg value="G:\Others\qwer.pdf"/>
+	</bean>
+ -->
+
+	<bean class="com.pe.beans.Book" id="book">
+		<property name="isbn" value="24593"/>
+		<property name="title" value="Wings Of Fire"/>
+		<!-- <property name="publishedDate" value="2017/04/01"/> -->
+		<property name="publishedDate" value="04/13/2016"/>
+		<!-- Date's value String will not works in any other format than ("/") below code does't work-->
+		<!-- <property name="publishedDate" value="10-01-2016"/> -->
+		<property name="website" value="http://www.google.com"/>
+		<property name="authors" value="President, Abdul, Kalam.K"/>
+		<property name="document" value="G:\Others\qwer.pdf"/>
+	</bean>
+</beans>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1"/>
+<title>Spring boot upload </title>
+</head>
+<body>
+<h2>Spring boot upload file with AJAX</h2>
+
+	<form method="post" enctype="multipart/form-data" id="fileUploadForm">
+		<input type="text" name="extraField"/>
+		<br/>
+		<input type="file" name="files"/>
+		<br/>
+		<input type="file" name="files"/>
+		<br/>
+		<input type="button" value="SUBMIT" id="btnSubmit"/>
+	</form>
+	
+	<h2>AJAX POST Result </h2>
+	<pre>
+		<span id="result"></span>
+	</pre>
+	
+	<script type="text/javascript" src="webjars/jquery/2.2.4/jquery.min.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+package com.automobiles.entities;
+
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">;
+<!-- Generated Aug 11, 2017 3:22:17 PM by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.automobiles.entities.Mechanic" table="MECHANIC">
+        <id name="mechanicNo" type="int" column="MECHANIC_NO" />
+        <property name="firstName" type="java.lang.String" column="FIRST_NM" />
+        <property name="lastName" type="java.lang.String" column="LAST_NM" />
+        <property name="specialization" type="java.lang.String"
+            column="SPECIALIZATION" />
+        <property name="experience" type="int" column="EXPERIENCE" />
+        <property name="contactNo" type="java.lang.String" column="CONTACT_NO" />
+        <property name="emailAddress" type="java.lang.String" column="EMAIL_ADDRESS" />
+    </class>
+</hibernate-mapping>

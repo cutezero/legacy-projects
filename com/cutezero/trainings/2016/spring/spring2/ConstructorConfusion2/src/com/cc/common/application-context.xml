@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean class="com.cc.beans.Machine" id="machine">
+		<constructor-arg name="modelNo" value="78"/>
+		<constructor-arg name="slNo"><value>23456</value></constructor-arg>
+		<constructor-arg name="name"><value>Srikanta</value></constructor-arg>
+	</bean>
+</beans>
+

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- <bean class="com.ib.beans.Chain" id="chain">
+		<property name="chainNo" value="5678"></property>
+		<property name="chainBrand" value="Ddamas"> </property>
+	</bean> -->
+	<bean class="com.ib.beans.Bicycle" id="bicycle">
+		<property name="brand" value="Hero"/>
+		<property name="chain" >
+			<bean class="com.ib.beans.Chain" id="chain">
+		<property name="chainNo" value="5678"></property>
+		<property name="chainBrand" value="Ddamas"> </property>
+	</bean>
+		</property>
+	</bean>
+	
+	 <bean class="com.ib.beans.Bicycle" id="bicycle2">
+		<property name="brand" value="BSA"/>
+		<property name="chain" >
+			<bean class="com.ib.beans.Chain" >
+		<property name="chainNo" value="4560"></property>
+		<property name="chainBrand" value="Titan"> </property>
+	</bean>
+		</property>
+	</bean>
+	
+	
+	 <bean class="com.ib.beans.Bicycle" id="bicycle3">
+		<property name="brand" value="BSA"/>
+		<property name="chain" >
+			<null/>
+		</property>
+	</bean>
+</beans>

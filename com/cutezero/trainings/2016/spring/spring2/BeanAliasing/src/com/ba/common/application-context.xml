@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean class="com.ba.beans.TransportManager" id="transportManager">
+		<property name="blueDartCourierService" ref="bluedartCourierServiceImpl"/>
+		<property name="dtdcCourierService" ref="dtdcCourierServiceImpl"/>
+		<!-- <property name="address" >
+			<ref parent="address"/>
+		</property> -->
+	</bean>
+
+	<bean class="com.ba.beans.BluedartCourierServiceImpl" id="bluedartCourierServiceImpl"/>
+	<bean class="com.ba.beans.DtdcCourierServiceImpl" name="dtdc,domestic, serv, d" id="dtdcCourierServiceImpl"/>
+	
+	<!-- <alias name="dtdcCourierServiceImpl" alias="bluedartCourierServiceImpl"/> -->
+</beans>

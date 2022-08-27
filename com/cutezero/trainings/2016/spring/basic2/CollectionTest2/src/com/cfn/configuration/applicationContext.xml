@@ -1,0 +1,30 @@
+<!-- applicationContext.xml -->
+<beans xmlns="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
+	
+	<bean id="demoBean" class="com.cfn.beans.DemoBean">
+		<property name="theProps">
+			<props>
+				<prop key="100">1000</prop>
+	<!-- 	
+				<value>
+				s=Sathya tech
+				10=100
+				</value>
+	 -->
+			</props>
+		</property>
+		<property name="theSet">
+			<set>
+				<value>sathya</value> 
+				<value>345</value> 
+				<value>TEch</value>
+				<value>sathya</value>  
+			</set>
+		</property>
+	</bean>
+	
+</beans>
+	

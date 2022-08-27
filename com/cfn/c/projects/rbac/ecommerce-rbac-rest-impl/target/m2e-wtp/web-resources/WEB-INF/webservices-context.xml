@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="US-ASCII"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jaxrs="http://cxf.apache.org/jaxrs"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd
+		http://cxf.apache.org/jaxrs http://cxf.apache.org/schemas/jaxrs.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+   <import resource="classpath*:/META-INF/cxf.xml" />
+
+    <!-- Force spring to use component scan / annotation config to configure all service singletons. -->
+    <context:annotation-config />
+    <context:component-scan base-package="org.ecommerce.rbac.impl.rest,
+    	org.ecommerce.rbac.impl.rest.exceptions" />
+
+	<!-- Instantiating operations rest service. -->
+    <jaxrs:server id="rbacOperationsWS" address="/operations">
+    	<jaxrs:providers>
+    	    <ref bean="emptyResultDataAccessExceptionMapperBean" />
+    		<ref bean="noResultExceptionMapperBean" />    		
+    		<ref bean="constraintViolationExceptionBean" />	
+    	</jaxrs:providers>
+        <jaxrs:serviceBeans>
+            <ref bean="rbacOperationsService" />
+        </jaxrs:serviceBeans>
+    </jaxrs:server>
+    
+	<!-- Instantiating operations rest service. -->
+    <jaxrs:server id="rbacObjectsWS" address="/objects">
+    	<jaxrs:providers>
+    	    <ref bean="emptyResultDataAccessExceptionMapperBean" />
+    		<ref bean="noResultExceptionMapperBean" />
+    		<ref bean="constraintViolationExceptionBean" />
+    	</jaxrs:providers>    
+        <jaxrs:serviceBeans>
+            <ref bean="rbacObjectsService" />
+        </jaxrs:serviceBeans>
+    </jaxrs:server>
+    
+	<!-- Instantiating permissions rest service. -->
+    <jaxrs:server id="rbacPermissionsWS" address="/permissions">
+    	<jaxrs:providers>
+    	    <ref bean="emptyResultDataAccessExceptionMapperBean" />
+    		<ref bean="noResultExceptionMapperBean" />
+    		<ref bean="constraintViolationExceptionBean" />
+    	</jaxrs:providers>    
+        <jaxrs:serviceBeans>
+            <ref bean="rbacPermissionsService" />
+        </jaxrs:serviceBeans>
+    </jaxrs:server>
+    
+	<!-- Instantiating roles rest service. -->
+    <jaxrs:server id="rbacRolesWS" address="/roles">
+    	<jaxrs:providers>
+    	    <ref bean="emptyResultDataAccessExceptionMapperBean" />
+    		<ref bean="noResultExceptionMapperBean" />
+    		<ref bean="constraintViolationExceptionBean" />
+    	</jaxrs:providers>    
+        <jaxrs:serviceBeans>
+            <ref bean="rbacRolesManagerService" />
+        </jaxrs:serviceBeans>
+    </jaxrs:server>
+    
+	<!-- Instantiating users rest service. -->
+    <jaxrs:server id="rbacUsersWS" address="/users">
+    	<jaxrs:providers>
+    	    <ref bean="emptyResultDataAccessExceptionMapperBean" />
+    		<ref bean="noResultExceptionMapperBean" />
+    		<ref bean="constraintViolationExceptionBean" />
+    	</jaxrs:providers>    
+        <jaxrs:serviceBeans>
+            <ref bean="rbacUsersService" />
+        </jaxrs:serviceBeans>
+    </jaxrs:server>
+    
+	<!-- Instantiating dsd rest service. -->
+	<jaxrs:server id="rbacDsdWS" address="/dsd">
+    	<jaxrs:providers>
+    	    <ref bean="emptyResultDataAccessExceptionMapperBean" />
+    		<ref bean="noResultExceptionMapperBean" />
+    		<ref bean="constraintViolationExceptionBean" />
+    	</jaxrs:providers>    
+        <jaxrs:serviceBeans>
+            <ref bean="rbacDsdService" />
+        </jaxrs:serviceBeans>
+    </jaxrs:server>
+    
+	<!-- Instantiating inheritance rest service. -->
+	<jaxrs:server id="rbacInheritanceWS" address="/roles/inheritance">
+    	<jaxrs:providers>
+    	    <ref bean="emptyResultDataAccessExceptionMapperBean" />
+    		<ref bean="noResultExceptionMapperBean" />
+    		<ref bean="constraintViolationExceptionBean" />
+    	</jaxrs:providers>    
+        <jaxrs:serviceBeans>
+            <ref bean="rbacInheritanceService" />
+        </jaxrs:serviceBeans>
+    </jaxrs:server>
+    
+	<!-- Instantiating sessions rest service. -->
+	<jaxrs:server id="rbaSessionsWS" address="/sessions">
+    	<jaxrs:providers>
+    	    <ref bean="emptyResultDataAccessExceptionMapperBean" />
+    		<ref bean="noResultExceptionMapperBean" />
+    		<ref bean="constraintViolationExceptionBean" />
+    	</jaxrs:providers>    
+        <jaxrs:serviceBeans>
+            <ref bean="rbacSessionsService" />
+        </jaxrs:serviceBeans>
+    </jaxrs:server>    
+</beans>

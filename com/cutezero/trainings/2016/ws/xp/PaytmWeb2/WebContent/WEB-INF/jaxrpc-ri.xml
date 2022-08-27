@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ Copyright 2004 Sun Microsystems, Inc. All rights reserved.
+ SUN PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
+-->
+
+<webServices
+    xmlns="http://java.sun.com/xml/ns/jax-rpc/ri/dd"
+    version="1.0"
+    targetNamespaceBase="http://paytm.com/partners/service"
+    typeNamespaceBase="http://paytm.com/partners/types"
+    urlPatternBase="/paytm">
+
+    <endpoint
+        name="PaytmMovieService"
+        displayName="PaytmPartnersService"
+        description="To get PaytmPartnersService Movies details" 
+        wsdl="/WEB-INF/PaytmService.wsdl"
+        interface="com.paytm.web.provider.PaytmMovieSIE"  
+        implementation="com.paytm.web.provider.PaytmMovieSIEImpl" 
+	    />
+ 
+    <endpoint
+        name="PaytmRechargeService"
+        displayName="PaytmPartnersService2"
+        description="To get PaytmPartnersService Recharge details" 
+        wsdl="/WEB-INF/PaytmService.wsdl"
+        interface="com.paytm.web.provider.recharge.PaytmRechargeSIE"  
+        implementation="com.paytm.web.provider.recharge.PaytmRechargeSIEImpl" 
+	    />
+	     
+    <endpointMapping
+        endpointName="PaytmMovieService"
+        urlPattern="/movies"/>
+ 
+    <endpointMapping
+        endpointName="PaytmRechargeService"
+        urlPattern="/recharge"/>
+</webServices>

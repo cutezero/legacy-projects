@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		<property name="mappings">
+			<props>
+				<prop key="/about-us.htm">aboutUsViewController</prop>
+				<prop key="/contact-us.htm">contactUsViewController</prop>
+				<prop key="/careers.htm">careersViewController</prop>
+				<prop key="/pdf-view.htm">pdfViewController</prop>
+			</props>
+		</property>
+	</bean>
+
+	<bean class="org.springframework.web.servlet.mvc.ParameterizableViewController" id="aboutUsViewController">
+		<property name="viewName" value="about-us"></property>
+	</bean>
+	<bean class="org.springframework.web.servlet.mvc.ParameterizableViewController" id="contactUsViewController">
+		<property name="viewName" value="contact-us"></property>
+	</bean>
+	<bean class="org.springframework.web.servlet.mvc.ParameterizableViewController" id="careersViewController">
+		<property name="viewName" value="job"></property>
+	</bean>
+	<bean class="org.springframework.web.servlet.mvc.ParameterizableViewController" id="pdfViewController">
+		<property name="viewName" value="pdf1"></property>
+	</bean>
+<!-- 	
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/jsp/"></property>
+		<property name="suffix" value=".jsp"></property>
+	</bean>
+ -->
+<!--  
+	<bean class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+		<property name="prefix" value="/WEB-INF/jsp/"></property>
+		<property name="suffix" value=".jsp"></property>
+		<property name="viewClass" value="org.springframework.web.servlet.view.JstlView"></property>
+	</bean>
+ -->	
+<!--  
+	<bean class="org.springframework.web.servlet.view.BeanNameViewResolver" >
+		<property name="order" value="1"></property>
+	</bean>
+	<bean class="org.springframework.web.servlet.view.JstlView" id="job">
+		<property name="url" value="/WEB-INF/jsp/careers.jsp"></property>
+	</bean>
+ -->	
+<!-- 	
+	<bean class="org.springframework.web.servlet.view.ResourceBundleViewResolver">
+		<property name="basename" value="views"></property>
+	</bean>
+ -->	
+ 	
+	<bean class="org.springframework.web.servlet.view.XmlViewResolver">
+		<property name="location" value="/WEB-INF/config/views-beans.xml"></property>
+	</bean>
+
+ </beans>

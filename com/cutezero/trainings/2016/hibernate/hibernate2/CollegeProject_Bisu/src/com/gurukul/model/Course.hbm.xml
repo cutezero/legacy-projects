@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 14 Dec, 2017 2:59:28 PM by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+	<class name="com.gurukul.model.Course" table="COURSE">
+		<id name="courseId" type="int" column="COURSEID">
+			<generator class="assigned" />
+		</id>
+		<property name="courseName" type="java.lang.String" column="COURSENAME" />
+		<property name="fee" type="int" column="FEE" />
+
+		<list name="student" cascade="all">
+			<key column="COURSEID" not-null="true"/>
+			<list-index column="CINDEX"/>
+			<one-to-many class="com.gurukul.model.Student" />
+		</list>
+		
+		<list name="subject" table="COSUB" cascade="all">
+			<key column="COURSEID" not-null="true" unique="false"/>
+			<list-index column="CINDEX"/>
+			<many-to-many column="SUBJECTID" class="com.gurukul.model.Subject" unique="false"/>
+		</list>
+	</class>
+</hibernate-mapping>

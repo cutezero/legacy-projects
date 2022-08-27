@@ -1,0 +1,24 @@
+<!-- applicationContext.xml -->
+<beans xmlns="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
+	
+	<bean id="demoBean" class="com.cfn.beans.DemoBean">
+		<property name="theList">
+			<list>
+				<value>100</value>
+				<value>Sathya Tech</value>
+				<value>100</value>
+			</list>
+		</property>
+		<property name="theMap">
+			<map>
+				<entry key="s" value="sathya"></entry>
+				<entry key='f' value="5000"></entry>
+			</map>
+		</property>
+	</bean>
+	
+</beans>
+	

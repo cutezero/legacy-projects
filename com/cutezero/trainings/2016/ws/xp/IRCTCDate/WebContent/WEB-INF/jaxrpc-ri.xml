@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ Copyright 2004 Sun Microsystems, Inc. All rights reserved.
+ SUN PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
+-->
+
+<webServices
+    xmlns="http://java.sun.com/xml/ns/jax-rpc/ri/dd"
+    version="1.0"
+    targetNamespaceBase="http://irctc.co.in/partners/ticketsinfo/service"
+    typeNamespaceBase="http://irctc.co.in/partners/ticketsinfo/types"
+    urlPatternBase="/ticketInfo">
+
+    <endpoint
+        name="IRCTCTicket"
+        displayName="IRCTCService"
+        description="To get IRCTC Ticket details" 
+        wsdl="/WEB-INF/IRCTCService.wsdl"
+        interface="com.irctc.web.provider.IRCTCTicket"  
+        implementation="com.irctc.web.provider.IRCTCTicketImpl" 
+	     model="/WEB-INF/model-rpc-enc.xml.gz"/>
+ 
+    <endpointMapping
+        endpointName="IRCTCTicket"
+        urlPattern="/ticketInfo"/>
+
+</webServices>

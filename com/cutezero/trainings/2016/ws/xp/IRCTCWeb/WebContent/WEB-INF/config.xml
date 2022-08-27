@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<!--
+		Copyright 2004 Sun Microsystems, Inc. All rights reserved. SUN
+		PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
+	-->
+<configuration xmlns="http://java.sun.com/xml/ns/jax-rpc/ri/config">
+	<service name="IRCTCService" 
+		targetNamespace="http://irctc.co.in/partners/ticketsinfo/service"
+		typeNamespace="http://irctc.co.in/partners/ticketsinfo/types" 
+		packageName="in.co.irctc.service.bindings">
+		<interface name="in.co.irctc.web.provider.IRCTCServiceSIE"
+			servantName="in.co.irctc.web.provider.IRCTCServiceSIEImpl" />
+	</service>
+</configuration>

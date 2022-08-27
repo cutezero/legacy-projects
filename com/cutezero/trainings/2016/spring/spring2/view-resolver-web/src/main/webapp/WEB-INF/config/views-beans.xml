@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+	<bean class="org.springframework.web.servlet.view.JstlView" id="job">
+		<property name="url" value="/WEB-INF/jsp/careers.jsp"></property>
+	</bean>
+	<bean class="org.springframework.web.servlet.view.JstlView" name="about-us">
+		<property name="url" value="/WEB-INF/jsp/about-us.jsp"></property>
+	</bean>
+	<bean class="org.springframework.web.servlet.view.JstlView" name="contact-us">
+		<property name="url" value="/WEB-INF/jsp/contact-us.jsp"></property>
+	</bean>
+	
+	<bean class="com.vr.views.ReportsPdfView" id="pdf1">
+	</bean>
+</beans>

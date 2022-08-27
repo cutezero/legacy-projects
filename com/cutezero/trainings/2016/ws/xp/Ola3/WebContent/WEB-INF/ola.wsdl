@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:ocs="http://ola.com/cabs/services"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ola"
+	targetNamespace="http://ola.com/cabs/services" 
+	xmlns:oct="http://ola.com/cabs/types">
+	<wsdl:types>
+		<xsd:schema targetNamespace="http://ola.com/cabs/types"
+			>
+			<xsd:complexType name="trip">
+				<xsd:sequence>
+					<xsd:element name="source" type="xsd:string" />
+					<xsd:element name="destination" type="xsd:string" />
+					<xsd:element name="cabType" type="xsd:string" />
+					<xsd:element name="promoCode" type="xsd:string" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="passenger">
+				<xsd:sequence>
+					<xsd:element name="passengerId" type="xsd:string" />
+					<xsd:element name="passengerName" type="xsd:string" />
+					<xsd:element name="passengerMobileNo" type="xsd:string" />
+					<xsd:element name="passengerEmail" type="xsd:string" />
+					<xsd:element name="noOfPassenger" type="xsd:int" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="rideDetails">
+				<xsd:sequence>
+					<xsd:element name="cabNo" type="xsd:string"/>
+					<xsd:element name="driverName" type="xsd:string"/>
+					<xsd:element name="driverMobileNo" type="xsd:string"/>
+					<xsd:element name="estimatedAmount" type="xsd:float"/>
+				</xsd:sequence>
+			</xsd:complexType>
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="Ola_bookRide">
+		<wsdl:part name="trip" type="oct:trip"/>
+		<wsdl:part name="passenger" type="oct:passenger"/>
+	</wsdl:message>
+	<wsdl:message name="Ola_bookRideResponse">
+		<wsdl:part name="result" type="oct:rideDetails"/>
+	</wsdl:message>
+	<wsdl:portType name="Ola"> 
+		<wsdl:operation name="bookRide" parameterOrder="trip passenger">
+			<wsdl:input message="ocs:Ola_bookRide" />
+			<wsdl:output message="ocs:Ola_bookRideResponse" />
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="olaSOAPBinding" type="ocs:Ola">
+		<soap:binding style="rpc"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="bookRide">
+			<soap:operation soapAction="http://ola.com/cabs/services#bookRide" />
+			<wsdl:input>
+				<soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+					namespace="http://ola.com/cabs/services" use="encoded" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+					namespace="http://ola.com/cabs/services" use="encoded" />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="ola">
+		<wsdl:port binding="ocs:olaSOAPBinding" name="olaSOAPPort">
+			<soap:address location="http://www.example.org/" />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>
